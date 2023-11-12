@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventListView from '../views/EventListView.vue'
-import EventDetailsView from '../views/EventDetailsView.vue'
+import EventDetails from '../views/event/Details.vue'
+import EventLayout from '../views/event/Layout.vue'
+import EventRegister from '../views/event/Register.vue'
+import EventEdit from '../views/event/Edit.vue'
 import AboutView from '../views/AboutView.vue'
 
 const router = createRouter({
@@ -25,7 +28,24 @@ const router = createRouter({
       path: '/events/:id',
       name: 'event-details',
       props: true,
-      component: EventDetailsView
+      component: EventLayout,
+      children: [
+        {
+          path: '',
+          name: 'EventDetails',
+          component: EventDetails
+        },
+        {
+          path: 'register',
+          name: 'EventRegister',
+          component: EventRegister
+        },
+        {
+          path: 'edit',
+          name: 'EventEdit',
+          component: EventEdit
+        }
+      ]
     },
     {
       path: '/event/:afterEvent(.*)',
