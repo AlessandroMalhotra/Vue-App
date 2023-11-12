@@ -13,15 +13,25 @@ const router = createRouter({
       props: route => ({ page: parseInt(route.query.page) || 1 })
     },
     {
-      path: '/about',
+      path: '/about-us',
       name: 'about',
       component: AboutView,
     },
     {
-      path: '/event/:id',
+      path: '/about',
+      redirect: { name: "about"}
+    },
+    {
+      path: '/events/:id',
       name: 'event-details',
       props: true,
       component: EventDetailsView
+    },
+    {
+      path: '/event/:afterEvent(.*)',
+      redirect: to  => {
+        return { path: '/events/' + to.params.afterEvent}
+      }
     }
   ],
 })
