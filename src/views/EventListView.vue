@@ -25,7 +25,7 @@ onMounted(() => {
           totalEvents.value = response.headers['x-total-count']
       })
       .catch((error) => {
-        console.log(error)
+        router.push({ name: 'NetworkError'})
       })
   })
 })

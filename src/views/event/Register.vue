@@ -1,6 +1,12 @@
 <script setup>
-	defineProps(['event'])
+defineProps(['event'])
+const register = () => {
+	router.push({
+		name: 'EventDetails'
+	})
+}
 </script>
 <template>
-	<p>Register for the event here</p>
+	<p>Register form here</p>
+	<button @click="register">Register Me!</button>
 </template>
