@@ -6,6 +6,7 @@ import EventRegister from '../views/event/Register.vue'
 import EventEdit from '../views/event/Edit.vue'
 import AboutView from '../views/AboutView.vue'
 import NotFound from '../views/Notfound.vue'
+import NetworkError from '../views/NetworkError.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,7 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'EventDetails',
+          name: 'event-details',
           component: EventDetails
         },
         {
