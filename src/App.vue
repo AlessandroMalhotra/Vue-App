@@ -1,9 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useFlashStore } from '@/stores/flashMessage.js'
+import { storeToRefs } from 'pinia'
+
+const store = useFlashStore()
 </script>
 
 <template>
   <div id="layout">
+    <div id="flashMessage" v-if="store.getMessage">
+      {{ store.getMessage }}
+    </div>
     <header>
       <div class="wrapper">
         <nav>
@@ -36,5 +43,9 @@ nav a.router-link-exact-active {
 }
 h2 {
   font-size: 20px;
+}
+#flashMessage {
+  animation-name: yellowfade;
+  animation-duration: 3s;
 }
 </style>

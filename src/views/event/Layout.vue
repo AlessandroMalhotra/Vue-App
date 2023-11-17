@@ -26,7 +26,7 @@ onMounted(() => {
 	<div v-if="event">
 		<h1>{{ event.title }}</h1>
 		<div id="nav">
-			<router-link :to="{ name: 'EventDetails' }"
+			<router-link :to="{ name: 'event-details' }"
 				>Details</router-link
 			>
 			|
