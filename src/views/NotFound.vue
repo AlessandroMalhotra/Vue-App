@@ -1,11 +1,11 @@
 <script setup>
-	defineProps({
-		resource: {
-				type: String,
-				required: true,
-				default: 'page'
-		}
-	})
+defineProps({
+	resource: {
+			type: String,
+			required: true,
+			default: 'page'
+	}
+})
 </script>
 
 <template>

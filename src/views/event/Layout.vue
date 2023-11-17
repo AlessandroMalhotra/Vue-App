@@ -1,26 +1,26 @@
 <script setup>
-	import { onMounted, ref } from 'vue'
-	import EventService from '@/services/services.js'
-	
-	const { id } = defineProps(['id'])
-	
-	const event = ref(null)
-	onMounted(() => {
-		EventService.getEvent(id)
-			.then(response => {
-				event.value = response.data
-			})
-			.catch(error => {
-				if (error.response && error.response.status == 404) {
-					router.push({
-						name: '404Resource',
-						params: { resource: 'event' }
-					})
-				} else {
-					router.push({ name: 'NetworkError'})
-				}
-			})
-	})
+import { onMounted, ref } from 'vue'
+import EventService from '@/services/services.js'
+
+const { id } = defineProps(['id'])
+
+const event = ref(null)
+onMounted(() => {
+	EventService.getEvent(id)
+		.then(response => {
+			event.value = response.data
+		})
+		.catch(error => {
+			if (error.response && error.response.status == 404) {
+				router.push({
+					name: '404Resource',
+					params: { resource: 'event' }
+				})
+			} else {
+				router.push({ name: 'NetworkError'})
+			}
+		})
+})
 </script>
 <template>
 	<div v-if="event">
