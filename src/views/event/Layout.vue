@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import EventService from '@/services/services.js'
+import { useRouter } from 'vue-router'
 
 const { id } = defineProps(['id'])
+const router = useRouter()
 
 const event = ref(null)
 onMounted(() => {
